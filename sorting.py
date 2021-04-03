@@ -93,6 +93,21 @@ def insertionSort(alist):
     return alist
 
 
+def partition(alist):
+    low = 0
+    high = len(alist)-1
+    i = low - 1
+    pivot = alist[high]
+
+    for j in range(low,high):
+
+        if alist[j] <= pivot:
+
+            i=i+1
+            alist[i], alist[j] = alist[j], alist[i]
+        
+    alist[i+1], alist[high] = alist[high], alist[i+1]
+    return (i+1)
 
 
 
@@ -107,6 +122,8 @@ def quickSort(alist):
         quickSort(alist[pi:])
 
 
+
+
 alist = [54,26,93,17,77,31,44,55,20]
 #alist = [17, 20, 26, 31, 44, 54, 55, 77, 93]
 #alist = [54,26,93]
@@ -114,5 +131,6 @@ alist = [54,26,93,17,77,31,44,55,20]
 #print (selectionSort(alist))
 #print (insertionSort(alist))
 
-print(mergeSort(alist))
+print(quickSort(alist))
+print(alist)
 # %%
